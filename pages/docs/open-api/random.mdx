@@ -1,0 +1,110 @@
+import { BoxIcon, GearIcon, RowsIcon } from '@components/icons'
+import { Callout, Card, Cards, Steps } from 'nextra/components'
+import { OptionTable } from 'components/table'
+import { OptionBadge } from 'components/badge'
+
+# 随机文字
+
+包括随机数字、随机明星、随机诗文、随机dom模版
+
+## <OptionBadge type="get" />random
+
+### 接口地址
+
+```url
+http://localhost:4000/random
+```
+
+> 返回所有的随机数据
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "number": 1319,
+        "user": {
+            "name": "雷军",
+            "year": 1969,
+            "sex": "男",
+            "nationality": "中国",
+            "school": "武汉大学",
+            "achievement": [
+                "带领金山软件上市",
+                "带领小米科技上市",
+                "主要作品有《城市梦想》"
+            ]
+        },
+        "poems": {
+            "title": "滁州西涧",
+            "autho": "韦应物",
+            "textArray": [
+                "独怜幽草涧边生，",
+                "上有黄鹂深树鸣。",
+                "春潮带雨晚来急，",
+                "野渡无人舟自横。"
+            ],
+            "domText": "<p>独怜幽草涧边生，</p><p>上有黄鹂深树鸣。</p><p>春潮带雨晚来急，</p><p>野渡无人舟自横。</p>"
+        },
+        "article": {
+            "title": "洛神赋",
+            "text": "余从京域，言归东藩。背伊阙，越轘辕，经通谷，陵景山。日既西倾，车殆马烦。尔乃税驾乎蘅皋，秣驷乎芝田，容与乎阳林，流眄乎洛川。于是精移神骇，忽焉思散。俯则未察，仰以殊观，睹一丽人，于岩之畔。乃援御者而告之曰：“尔有觌于彼者乎？彼何人斯？若此之艳也！”御者对曰：“臣闻河洛之神，名曰宓妃。然则君王之所见也，无乃是乎？其状若何？臣愿闻之。”"
+        }
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+## <OptionBadge type="post" />random
+
+### 接口地址
+
+```url
+http://localhost:4000/random
+```
+
+> 返回对应的随机数据
+
+### 入参
+
+```json
+{
+    "number": true,
+    "poems": true
+}
+```
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "number": 7048,
+        "poems": {
+            "title": "清明",
+            "autho": "杜牧",
+            "textArray": [
+                "清明时节雨纷纷，",
+                "路上行人欲断魂。",
+                "借问酒家何处有？",
+                "牧童遥指杏花村。"
+            ],
+            "domText": "<p>清明时节雨纷纷，</p><p>路上行人欲断魂。</p><p>借问酒家何处有？</p><p>牧童遥指杏花村。</p>"
+        }
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+### Attributes
+
+<OptionTable
+  options={[
+    ['number', 'boolean?', '返回随机数'],
+    ['user', 'boolean?', '返回随机用户数据'],
+    ['poems', 'boolean?', '返回随机诗文'],
+    ['article', 'boolean?', '返回随机骈文段落']
+  ]}
+/>

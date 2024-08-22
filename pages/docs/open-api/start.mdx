@@ -1,0 +1,134 @@
+import { BoxIcon, GearIcon, RowsIcon } from '@components/icons'
+import { Callout, Card, Cards, Steps } from 'nextra/components'
+import { OptionTable } from 'components/table'
+import { OptionBadge } from 'components/badge'
+
+# 用户信息
+
+获取明星基本信息
+
+## <OptionBadge type="get" />user
+
+### 接口地址
+
+```url
+http://localhost:4000/user
+```
+
+> 默认返回第一个mock数据
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "name": "埃隆・马斯克",
+        "year": 1971,
+        "sex": "男",
+        "nationality": "南非、加拿大、美国",
+        "school": "宾夕法尼亚大学",
+        "achievement": [
+            "创办在线内容出版软件 “Zip2” 和电子支付 “X.com” 并成功出售",
+            "投资成立太空探索技术公司（SpaceX）并成功发射猎鹰 1 号火箭",
+            "投资并担任特斯拉公司首席执行官，使特斯拉成为全球市值最高的汽车企业",
+            "投资联合创办光伏发电企业太阳城公司，后被特斯拉收购",
+            "完成收购推特并担任首席执行官",
+            "主要作品有《硅谷钢铁侠：埃隆・马斯克的冒险人生》"
+        ]
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+## <OptionBadge type="get" />user/:id
+
+> 返回id对应的用户数据，不存在返回默认用户数据
+
+### 接口地址
+
+```url
+http://localhost:4000/user/:id
+```
+
+### 入参
+
+**id**
+
+取值范围1-8
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "name": "比尔·盖茨",
+        "year": 1955,
+        "sex": "男",
+        "nationality": "美国",
+        "school": "哈佛大学",
+        "achievement": [
+            "创办微软公司",
+            "成立比尔和梅琳达·盖茨基金会",
+            "主要作品有《走进比尔：解码比尔·盖茨》"
+        ]
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+### Attributes
+
+<OptionTable
+  options={[
+    ['id', 'string', '返回对应用户id的用户数据']
+  ]}
+/>
+
+## <OptionBadge type="post" />user
+
+### 接口地址
+
+```url
+http://localhost:4000/user
+```
+
+> 返回所有的用户信息列表
+
+### 入参
+
+```json
+{
+  "id" : "2"
+}
+```
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "name": "雷军",
+        "year": 1969,
+        "sex": "男",
+        "nationality": "中国",
+        "school": "武汉大学",
+        "achievement": [
+            "带领金山软件上市",
+            "带领小米科技上市",
+            "主要作品有《城市梦想》"
+        ]
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+### Attributes
+
+<OptionTable
+  options={[
+    ['id', 'string?', '返回对应用户id的用户数据']
+  ]}
+/>

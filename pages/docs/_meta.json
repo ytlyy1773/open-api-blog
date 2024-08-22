@@ -1,0 +1,27 @@
+{
+  "index": "介绍",
+  "-- Themes": {
+    "type": "separator",
+    "title": "接口文档"
+  },
+  "open-api": "免跨域",
+  "cross-domain": "跨域",
+  "-- More": {
+    "type": "separator",
+    "title": "更多精彩"
+  },
+  "-- correlation": {
+    "type": "separator",
+    "title": "作者相关"
+  },
+  "about-link": {
+    "title": "博客 ↗",
+    "href": "https://www.jwblog.cn",
+    "newWindow": true
+  },
+  "github-link": {
+    "title": "github 主页 ↗",
+    "href": "https://github.com/ytlyy1773",
+    "newWindow": true
+  }
+}

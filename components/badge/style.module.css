@@ -1,0 +1,27 @@
+.badge {
+  display: inline-block;
+  margin-left: 2px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 0 10px;
+  line-height: 22px;
+  font-size: 12px;
+  font-weight: 500;
+  transform: translateY(-2px);
+  border-color: transparent;
+  margin-right: 6px;
+  color: rgba(60, 60, 67, .78);;
+  background-color: rgba(142, 150, 170, .14);
+}
+
+.badgeGet {
+  border-color: transparent;
+  color: #18794e;
+  background-color: rgba(16, 185, 129, .14);
+}
+
+.badgePost {
+  border-color: transparent;
+  color: #915930;
+  background-color: rgba(234, 179, 8, .14);
+}
