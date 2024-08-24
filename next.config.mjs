@@ -13,21 +13,14 @@ const withNextra = nextra({
 export default withNextra({
   reactStrictMode: true,
   eslint: {
-    // ESLint behaves weirdly in this monorepo.
     ignoreDuringBuilds: true
   },
-  redirects: () => [
-    {
-      source: '/docs/guide/:slug(typescript|latex|tailwind-css|mermaid)',
-      destination: '/docs/guide/advanced/:slug',
-      permanent: true
-    },
-    {
-      source: '/docs/docs-theme/built-ins/:slug(callout|steps|tabs)',
-      destination: '/docs/guide/built-ins/:slug',
-      permanent: true
-    }
-  ],
+  // 自定义优化打包image、处理打包报错问题
+  images: {
+    loader: 'imgix',
+    path: "",
+  },
+  output: 'export', // 导出静态资源文件
   webpack(config) {
     const allowedSvgRegex = /components\/icons\/.+\.svg$/
 
