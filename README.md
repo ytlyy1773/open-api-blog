@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 开源 Api 接口
 
-## Getting Started
+提供简单、开源、免费的 api 接口
 
-First, run the development server:
+供广大开发者学习使用
+
+## 技术架构
+
+- 前端使用 [nextjs](https://nextjs.org/) 开发
+
+- 后端使用 [nestjs](https://nestjs.com/) 开发
+
+## 网站链接
+
+- 🚗&nbsp;&nbsp;[官网](https://www.openapijs.com/)
+- 🚗&nbsp;&nbsp;[国际官网访问](https://openapijs.vercel.app/)
+
+## 源码链接
+
+- 🔰&nbsp;&nbsp;[github 仓库地址](https://github.com/ytlyy1773/open-api-blog.git)
+- 🔰&nbsp;&nbsp;[gitee 仓库地址](https://gitee.com/ytlyy1773/open-api-blog.git)
+
+## 系统要求
+
+- **Node.js 18.18** 或更高版本。
+
+## 运行
+
+> 国内建议使用 `npm` 淘宝镜像地址下载
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm i
+
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 赞助
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div style="display: flex; justify-content: space-between;">
+    <img src="./public/images/wechat.png" alt="微信赞助" width="300" height="450" />
+    <img src="./public/images/zhifubao.png" alt="支付宝赞助" width="300" height="450" />
+</div>
