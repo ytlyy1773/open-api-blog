@@ -11,6 +11,27 @@
     "type": "page",
     "title": "接口文档"
   },
+  "link": {
+    "title": "API大全",
+    "type": "menu",
+    "items": {
+      "public-apis": {
+        "title": "public-apis ↗",
+        "href": "https://github.com/public-apis/public-apis",
+        "newWindow": true
+      },
+      "teacher": {
+        "title": "教书先生API ↗",
+        "href": "https://api.oioweb.cn",
+        "newWindow": true
+      },
+      "free-api": {
+        "title": "free-api ↗",
+        "href": "https://github.com/fangzesheng/free-api",
+        "newWindow": true
+      }
+    }
+  },
   "404": {
     "type": "page",
     "theme": {
