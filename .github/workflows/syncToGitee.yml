@@ -14,6 +14,6 @@ jobs:
           dst: "gitee/ytlyy1773"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-          static_list: "blog" # 仓库名字
+          static_list: "open-api-blog" # 仓库名字
           force_update: true # 强制同步
           debug: true # 启用 `debug` 开关
