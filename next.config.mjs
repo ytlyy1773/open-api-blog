@@ -11,7 +11,6 @@ const withNextra = nextra({
 })
 
 export default withNextra({
-  trailingSlash: true,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true
