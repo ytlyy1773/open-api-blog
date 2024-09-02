@@ -1,12 +1,12 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: 'class', // 主题色控制
+  darkMode: "class", // 主题色控制
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./theme.config.tsx"
+    "./theme.config.tsx",
   ],
   theme: {
     extend: {
@@ -17,6 +17,5 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
 };
 export default config;
