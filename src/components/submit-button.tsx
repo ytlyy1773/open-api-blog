@@ -1,26 +1,26 @@
 "use client";
 
-// import { useFormStatus } from "react-dom";
-
 export function SubmitButton({
   children,
+  loading,
   onSubmit,
 }: {
   children: React.ReactNode;
+  loading: boolean;
   onSubmit: any;
 }) {
   // const { pending } = useFormStatus();
-  const pending = "";
   return (
     <>
+      <div>{loading}</div>
       <button
         type="button"
-        aria-disabled={pending ? true : false}
+        aria-disabled={loading ? true : false}
         className="flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none"
         onClick={onSubmit}
       >
         {children}
-        {pending && (
+        {loading && (
           <svg
             className="animate-spin ml-2 h-4 w-4 text-black"
             xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ export function SubmitButton({
           </svg>
         )}
         <span aria-live="polite" className="sr-only" role="status">
-          {pending ? "Loading" : "Submit form"}
+          {loading ? "Loading" : "Submit form"}
         </span>
       </button>
     </>

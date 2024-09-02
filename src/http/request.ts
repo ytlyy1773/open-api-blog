@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from "axios";
+import { message } from "antd";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/platform-user/login",
+  baseURL: "http://localhost:4000",
   timeout: 30 * 1000,
   headers: {
     "Content-Type": "application/json",
@@ -14,7 +15,7 @@ instance.interceptors.response.use((response: AxiosResponse) => {
   if (data.code === 200) {
     return data;
   } else {
-    window.alert(data.msg);
+    message.error(data.msg);
     return Promise.reject(data);
   }
 });

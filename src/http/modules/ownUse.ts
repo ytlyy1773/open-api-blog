@@ -2,6 +2,6 @@ import request from "../request";
 
 export const postLoginApi = (data?: unknown) =>
   request({
-    url: "",
+    url: "/platform-user/login",
     data,
   });
