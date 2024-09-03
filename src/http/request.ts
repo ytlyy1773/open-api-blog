@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { message } from "antd";
+import { ResponseData } from "@/type";
 
 const instance = axios.create({
   baseURL: "http://localhost:4000",
@@ -20,7 +21,7 @@ instance.interceptors.response.use((response: AxiosResponse) => {
   }
 });
 
-const request = (data: Record<string, any>) => {
+const request = <T>(data: Record<string, any>): Promise<ResponseData<T>> => {
   return instance({
     method: "post",
     data: {},

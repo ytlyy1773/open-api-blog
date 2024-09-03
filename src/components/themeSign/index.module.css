@@ -1,0 +1,6 @@
+.signButton[type=button] {
+    color: #fff ;
+    background: #1677ff ;
+    border-radius: 99999px;
+    height: 28px;
+}
