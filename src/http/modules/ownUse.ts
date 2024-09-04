@@ -23,7 +23,7 @@ export const postEmailSendApi = (data?: unknown) =>
   });
 
 // 获取用户信息
-export const postUserInfoApi = () =>
+export const postUserInfoApi = (): Promise<ResponseData<any>> =>
   request({
     url: "/platform-user/info",
   });
