@@ -15,6 +15,12 @@ import { OptionBadge } from '@/components/badge'
 https://www.openapijs.com/api/user
 ```
 
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/user'
+```
+
 > 默认返回第一个mock数据
 
 ### 响应示例
@@ -49,6 +55,12 @@ https://www.openapijs.com/api/user
 
 ```url
 https://www.openapijs.com/api/user/:id
+```
+
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/user/2'
 ```
 
 ### 入参
@@ -93,6 +105,17 @@ https://www.openapijs.com/api/user/:id
 ```url
 https://www.openapijs.com/api/user
 ```
+
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/user' \
+--header 'Content-Type: application/json' \
+--data '{
+  "id" : "3"
+}'
+```
+
 
 > 返回所有的用户信息列表
 

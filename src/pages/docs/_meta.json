@@ -10,7 +10,13 @@
     "type": "separator",
     "title": "更多精彩"
   },
-  "-- correlation": {
+  "email": "发送邮件",
+  "-- User": {
+    "type": "separator",
+    "title": "用户"
+  },
+  "user": "用户中心",
+  "-- Correlation": {
     "type": "separator",
     "title": "作者相关"
   },

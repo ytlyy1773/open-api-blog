@@ -6,10 +6,15 @@ import { postLoginApi } from "@/http/modules/ownUse";
 import { checkForm } from "@/utils/businessCheck";
 import { message } from "antd";
 import { useRouter } from "next/router";
+import { ResponseData } from "@/type";
 
 interface LoginForm {
   email: string;
   password: string;
+}
+
+interface TokenType {
+  token: string;
 }
 
 export default function Login() {
@@ -31,10 +36,11 @@ export default function Login() {
     }
     setTimer(true);
     try {
-      const {
-        data: { token },
-      } = await postLoginApi(loginForm);
-      window.localStorage.setItem("open-api-token", JSON.stringify(token));
+      const res: ResponseData<TokenType> = await postLoginApi(loginForm);
+      window.localStorage.setItem(
+        "open-api-token",
+        JSON.stringify(res.data.token)
+      );
       router.back();
       setTimer(false);
     } catch (error) {

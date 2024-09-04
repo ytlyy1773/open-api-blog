@@ -15,6 +15,12 @@ import { OptionBadge } from '@/components/badge'
 https://www.openapijs.com/api/random
 ```
 
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/random'
+```
+
 > 返回所有的随机数据
 
 ### 响应示例
@@ -64,6 +70,17 @@ https://www.openapijs.com/api/random
 https://www.openapijs.com/api/random
 ```
 
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/random' \
+--header 'Content-Type: application/json' \
+--data '{
+    "number": true,
+    "poems": true
+}'
+```
+
 > 返回对应的随机数据
 
 ### 入参
@@ -102,9 +119,9 @@ https://www.openapijs.com/api/random
 
 <OptionTable
   options={[
-    ['number', 'boolean?', '返回随机数'],
-    ['user', 'boolean?', '返回随机用户数据'],
-    ['poems', 'boolean?', '返回随机诗文'],
-    ['article', 'boolean?', '返回随机骈文段落']
+    ['number', 'boolean?', '返回随机数', true],
+    ['user', 'boolean?', '返回随机用户数据', true],
+    ['poems', 'boolean?', '返回随机诗文', true],
+    ['article', 'boolean?', '返回随机骈文段落', true]
   ]}
 />

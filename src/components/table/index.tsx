@@ -1,23 +1,31 @@
-import styles from './style.module.css'
+import styles from "./style.module.css";
 
-export function OptionTable({ options }: { options: [string, string, any] }) {
+type Option = [string, string, any, any?];
+
+interface OptionTableProps {
+  options: Option[];
+}
+
+export function OptionTable({ options }: OptionTableProps) {
+  const showDefault = options.some((e) => e.length > 3);
   return (
     <div
       className={
-        '-mx-6 mb-4 mt-6 overflow-x-auto overscroll-x-contain px-6 pb-4 ' +
+        "-mx-6 mb-4 mt-6 overflow-x-auto overscroll-x-contain px-6 pb-4 " +
         styles.container
       }
     >
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="border-b py-4 text-left dark:border-neutral-700">
-            <th className="py-2 font-semibold">Option</th>
-            <th className="py-2 pl-6 font-semibold">Type</th>
-            <th className="px-6 py-2 font-semibold">Description</th>
+            <th className="py-2 font-semibold">参数</th>
+            <th className="py-2 pl-6 font-semibold">类型</th>
+            <th className="px-6 py-2 font-semibold">描述</th>
+            {showDefault && <th className="px-6 py-2 font-semibold">默认值</th>}
           </tr>
         </thead>
         <tbody className="align-baseline text-gray-900 dark:text-gray-100">
-          {options.map(([option, type, description]) => (
+          {options.map(([option, type, description, defaultValue]) => (
             <tr
               key={option}
               className="border-b border-gray-100 dark:border-neutral-700/50"
@@ -29,10 +37,15 @@ export function OptionTable({ options }: { options: [string, string, any] }) {
                 {type}
               </td>
               <td className="py-2 pl-6">{description}</td>
+              {showDefault && (
+                <td className="py-2 pl-6 font-mono text-xs">
+                  {String(defaultValue) || "-"}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }

@@ -1,3 +1,4 @@
+import ProjectButton from "@/components/themeProject";
 import SignButton from "@/components/themeSign";
 import { useRouter } from "next/router";
 import type { DocsThemeConfig } from "nextra-theme-docs";
@@ -83,9 +84,6 @@ const config: DocsThemeConfig = {
   search: {
     placeholder: `🔍  搜索文档`,
   },
-  project: {
-    link: "https://github.com/ytlyy1773/open-api-blog",
-  },
   docsRepositoryBase: "https://github.com/ytlyy1773/open-api-blog/tree/master",
   useNextSeoProps() {
     const { asPath } = useRouter();
@@ -106,6 +104,10 @@ const config: DocsThemeConfig = {
         <span>广告招租</span>
       </a>
     ),
+  },
+  project: {
+    icon: () => <ProjectButton />,
+    link: "https://github.com/ytlyy1773/open-api-blog",
   },
   chat: {
     icon: () => <SignButton />,

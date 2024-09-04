@@ -20,7 +20,15 @@ body {
 }
 
 .nx-text-current {
+  padding: 0;
+}
+
+.theme-link-icon {
   padding: .25rem;
+}
+
+.primary-button[type="button"] {
+  background: #1677ff;
 }
 
 figcaption {
