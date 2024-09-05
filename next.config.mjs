@@ -45,8 +45,16 @@ export default withNextra({
     // 代码分割
     config.optimization.splitChunks = {
       chunks: 'all',
-      minSize: 20000,
-      maxSize: 40000,
+      minSize: 30000,
+      maxSize: 150000,
+      minChunks: 1,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
     };
     return config
   }
