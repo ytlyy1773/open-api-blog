@@ -44,13 +44,13 @@ export default withNextra({
     );
     // 代码分割
     config.optimization.splitChunks = {
-      chunks: 'all',
-      minSize: 30000,
+      chunks: 'all', // 对所有 chunk 进行分割
+      minSize: 30000, // 分割出来的 chunk 最小大小为 30KB
       maxSize: 150000,
       minChunks: 1,
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
+        vendor: { // 一个模块至少被引用一次就会被提取到公共 chunk 中
+          test: /[\\/]node_modules[\\/]/, // 创建了一个名为 vendors 的缓存组，用于提取所有 node_modules 中的模块
           name: 'vendors',
           chunks: 'all'
         }
