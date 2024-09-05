@@ -20,6 +20,7 @@ export default withNextra({
   images: {
     loader: 'imgix',
     path: "",
+    formats: ['image/webp'], // 启用WebP格式
   },
   output: 'export', // 导出静态资源文件
   webpack(config) {
