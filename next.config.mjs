@@ -1,4 +1,5 @@
 import nextra from 'nextra'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const withNextra = nextra({
   theme: 'nextra-theme-docs',
@@ -33,6 +34,14 @@ export default withNextra({
       test: allowedSvgRegex,
       use: ['@svgr/webpack']
     })
+    // 打包分析
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: './analyze/bundle-report.html',
+        openAnalyzer: false,
+      })
+    );
     return config
   }
 })
