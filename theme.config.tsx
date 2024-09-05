@@ -66,6 +66,10 @@ const config: DocsThemeConfig = {
         <meta name="apple-mobile-web-app-title" content={title} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <meta
+          name="google-site-verification"
+          content="ldR2JWC_gLOds20kvD4ODpr9GzT5jUUQPnyWwE1dxIM"
+        />
         <link
           rel="icon"
           href="/favicon-dark.svg"
@@ -162,7 +166,12 @@ const config: DocsThemeConfig = {
             <span>一条懒羊羊的博客</span>
           </a>
         </div>
-        <p className="mt-6 text-xs">© {new Date().getFullYear()} 开源api项目</p>
+        <p className="mt-6 text-xs">
+          {new Date().getFullYear()}&nbsp;©&nbsp;
+          <a href="https://beian.miit.gov.cn/" target="_blank">
+            豫ICP备2023019165号-3
+          </a>
+        </p>
       </div>
     ),
   },
