@@ -19,8 +19,11 @@ export default withNextra({
   // 自定义优化打包image、处理打包报错问题
   images: {
     loader: 'imgix',
+    domains: ['openapijs.vercel.app', 'openapijs.com', 'jwblog.cn'],
     path: "",
-    formats: ['image/webp'], // 启用WebP格式
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   output: 'export', // 导出静态资源文件
   webpack(config) {
