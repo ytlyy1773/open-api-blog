@@ -42,6 +42,12 @@ export default withNextra({
         openAnalyzer: false,
       })
     );
+    // 代码分割
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 40000,
+    };
     return config
   }
 })
