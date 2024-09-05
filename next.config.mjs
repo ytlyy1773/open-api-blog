@@ -50,7 +50,7 @@ export default withNextra({
     config.optimization.splitChunks = {
       chunks: 'all', // 对所有 chunk 进行分割
       minSize: 20000, // 分割出来的 chunk 最小大小为 20KB
-      maxSize: 100000,
+      maxSize: 70000,
       minChunks: 1,
       cacheGroups: {
         vendor: { // 一个模块至少被引用一次就会被提取到公共 chunk 中
