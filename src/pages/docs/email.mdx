@@ -1,3 +1,102 @@
+import { OptionBadge } from '@/components/badge'
+import { OptionTable } from '@/components/table'
+
 # 发送邮件
 
-> 待完善...
+支持用户自定义发送邮件
+
+## <OptionBadge type="post" />email
+
+### 接口地址
+
+```url
+https://www.openapijs.com/api/email
+```
+
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/email' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "1XXXXXXXXXXXXXXXXX@qq.com",
+    "text": "hello word！！！"
+}'
+```
+
+> `email` 和 `to` 必须要有一个
+
+### 响应示例
+
+```json
+{
+    "data": {
+        "accepted": [
+            "1adasdadasd@qq.com"
+        ],
+        "rejected": [],
+        "ehlo": [
+            "PIPELINING",
+            "AUTH LOGIN PLAIN XOAUTH2",
+            "AUTH=LOGIN PLAIN XOAUTH2",
+            "coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFNl6EmUCa0xDrUUUUj",
+            "STARTTLS",
+            "ID",
+            "8BITMIME"
+        ],
+        "envelopeTime": 84,
+        "messageTime": 108,
+        "messageSize": 368,
+        "response": "250 Mail OK queued as gzga-smtp-mta-g2-0,_____wD3_60X9NhmV3GZCQ--.53448S2 1725494295",
+        "envelope": {
+            "from": "openapijs@163.com",
+            "to": [
+                "1XXXXXXXXXXXXXXXXX@qq.com"
+            ]
+        },
+        "messageId": "<41XXX-XXX2e-1281-6XXXXX-XXXXafd2@163.com>"
+    },
+    "msg": "发送邮箱成功",
+    "code": 200
+}
+```
+
+### Attributes
+
+<OptionTable
+  options={
+    [
+    ['email', 'string?', '接受邮件的邮箱地址'],
+    ['text', 'string | Buffer | Readable | AttachmentLike', '消息的纯文本版本'],
+    ['from', 'string | Address | undefined', '发件人的电子邮件地址。所有电子邮件地址可以是纯文本“sender@server.com”或格式化后的“发件人姓名 <sender@server.com>”'],
+    ['sender', 'string | Address | undefined', '将出现在“发件人：”字段中的电子邮件地址'],
+    ['to', 'string | Address | Array<string | Address> | undefined', '以逗号分隔的收件人电子邮件地址列表或数组，将出现在“收件人：”字段中'],
+    ['cc', 'string | Address | Array<string | Address> | undefined', '以逗号分隔的抄送人电子邮件地址列表或数组，将出现在“抄送：”字段中'],
+    ['bcc', 'string | Address | Array<string | Address> | undefined', '以逗号分隔的密送人电子邮件地址列表或数组，将出现在“密送：”字段中'],
+    ['replyTo', 'string | Address | Array<string | Address> | undefined', '以逗号分隔的回复地址列表或数组，将出现在“回复至：”字段中'],
+    ['inReplyTo', 'string | Address | undefined', '此消息正在回复的消息 ID'],
+    ['references', 'string | string[] | undefined', '消息 ID 列表（数组或用空格分隔的字符串）'],
+    ['subject', 'string | undefined', '电子邮件的主题'],
+    ['html', 'string | Buffer | Readable | AttachmentLike | undefined', '消息的 HTML 版本'],
+    ['watchHtml', 'string | Buffer | Readable | AttachmentLike | undefined', 'Apple Watch 特定的 HTML 版本，与 text 和 html 的用法相同'],
+    ['amp', 'string | Buffer | Readable | AmpAttachment | undefined', 'AMP4EMAIL 特定的 HTML 版本，与 text 和 html 的用法相同。确保它是完整有效的 AMP4EMAIL 文档，否则显示电子邮件的客户端将回退到 html 并忽略 amp 部分'],
+    ['icalEvent', 'string | Buffer | Readable | IcalAttachment | undefined', `iCalendar 事件，与 text 和 html 的用法相同。事件方法属性默认为“PUBLISH”，或者自行定义：{method: 'REQUEST', content: iCalString}。此值作为 html 或 text 的附加替代项添加。只允许 utf-8 内容`],
+    ['headers', 'Headers | undefined', '一个对象或数组，表示附加的头字段'],
+    ['list', 'ListHeaders | undefined', '一个对象，其中键名被转换为列表头。列表键“help”变为“List-Help”头等'],
+    ['attachments', 'Attachment[] | undefined', '附件对象数组'],
+    ['alternatives', 'Attachment[] | undefined', '附加的文本内容数组（除了 text 和 html 部分）'],
+    ['envelope', 'Envelope | MimeNode.Envelope | undefined', '可选的 SMTP 信封，如果自动生成的信封不合适'],
+    ['messageId', 'string | undefined', '可选的消息 ID 值，如果未设置则生成随机值'],
+    ['date', 'Date | string | undefined', '可选的日期值，如果未设置则使用当前 UTC 字符串'],
+    ['encoding', 'string | undefined', '可选的文本部分的传输编码'],
+    ['raw', 'string | Buffer | Readable | AttachmentLike | undefined', '如果设置，则用此值覆盖整个消息输出。该值不会被解析，因此你仍然应该设置地址头或信封值以使消息生效'],
+    ['textEncoding', 'TextEncoding | undefined', '如果设置为明确的编码，则用于文本部分的编码（quoted-printable 或 base64）。如果未设置，则从文本内容中检测编码（主要是 ASCII 表示 quoted-printable，否则为 base64）'],
+    ['disableUrlAccess', 'boolean | undefined', '如果设置为 true，则当节点尝试从 URL 加载内容时出错'],
+    ['disableFileAccess', 'boolean | undefined', '如果设置为 true，则当节点尝试从文件加载内容时出错'],
+    ['dkim', 'DKIM.Options | undefined', '包含 DKIM 选项的对象'],
+    ['normalizeHeaderKey', 'function', '用于规范化头键的方法，用于自定义大小写'],
+    ['priority', '"high" | "normal" | "low" | undefined', '优先级，可选值为“high”（高）、“normal”（正常）、“low”（低）'],
+    ['attachDataUrls', 'boolean | undefined', '如果设置为 true，则将消息 HTML 内容中的 data:images 转换为嵌入式附件']
+]
+  }
+/>
