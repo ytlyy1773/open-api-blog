@@ -47,11 +47,6 @@ const config: DocsThemeConfig = {
   logo,
   head: function useHead() {
     const { title } = useConfig();
-    const { route } = useRouter();
-    const socialCard =
-      route === "/" || !title
-        ? "https://nextra.site/og.jpeg"
-        : `https://nextra.site/api/og?title=${title}`;
 
     return (
       <>
@@ -60,8 +55,8 @@ const config: DocsThemeConfig = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Language" content="zh-CN" />
         <meta name="description" content="简单、开源、免费的 api 接口" />
+        <meta name="language" content="zh-CN"></meta>
         <meta name="og:title" content={title} />
-        <meta name="og:image" content={socialCard} />
         <meta name="og:description" content="简单、开源、免费的 api 接口" />
         <meta name="apple-mobile-web-app-title" content={title} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
