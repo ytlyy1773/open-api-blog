@@ -5,6 +5,7 @@ const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.tsx',
   latex: true,
+  distDir: 'out', // 打包兼容vercel
   flexsearch: {
     codeblocks: false
   },
