@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'https://www.openapijs.com',
+    siteUrl: process.env.SITE_URL,
     generateIndexSitemap: false,
     generateRobotsTxt: true,
 }
