@@ -27,3 +27,16 @@ export const postUserInfoApi = (): Promise<ResponseData<any>> =>
   request({
     url: "/platform-user/info",
   });
+
+// 生成邀请码
+export const postCreateInvitationApi = (): Promise<ResponseData<any>> =>
+  request({
+    url: "/invitation/create",
+  });
+
+// 邀请码列表
+export const postInvitationListApi = (): Promise<ResponseData<any>> =>
+  request({
+    url: "/invitation",
+    method: "get",
+  });

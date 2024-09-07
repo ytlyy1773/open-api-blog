@@ -1,9 +1,12 @@
 import { OptionBadge } from '@/components/badge'
 import { OptionTable } from '@/components/table'
+import { LoginWarn } from '@/components/loginWarn.tsx'
 
 # 发送邮件
 
 支持用户自定义发送邮件
+
+<LoginWarn />
 
 ## <OptionBadge type="post" />email
 
@@ -17,10 +20,11 @@ https://www.openapijs.com/api/email
 
 ```bash
 curl --location 'https://www.openapijs.com/api/email' \
+--header 'token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "email": "1XXXXXXXXXXXXXXXXX@qq.com",
-    "text": "hello word！！！"
+    "to": "1adasdadasd@qq.com",
+    "text": "12asdassd"
 }'
 ```
 
