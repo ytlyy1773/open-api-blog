@@ -3,8 +3,10 @@
 import { Callout } from "nextra/components";
 import { Tag, Button } from "antd";
 import Link from "next/link";
+import { useToken } from "@/pageTsx/docs/UserNotLoggedIn";
 
 function LoginWarn() {
+  const token = useToken();
   return (
     <>
       <Callout type="warning">
@@ -13,9 +15,11 @@ function LoginWarn() {
           token
         </Tag>
         使用
-        <Link href="/login">
-          <Button type="text">去登陆</Button>
-        </Link>
+        {!token && (
+          <Link href="/login">
+            <Button type="link">去登陆</Button>
+          </Link>
+        )}
       </Callout>
     </>
   );
