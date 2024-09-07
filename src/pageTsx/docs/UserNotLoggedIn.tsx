@@ -3,7 +3,7 @@
 import { Button, Card, message, Tag } from "antd";
 import { useState, useEffect } from "react";
 import { ResponseData } from "@/type";
-import NotLogin from "@/components/NotLogin";
+import NotLogin from "@/components/notLogin";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import {
   postUserInfoApi,
