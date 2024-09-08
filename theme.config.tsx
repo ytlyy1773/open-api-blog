@@ -38,7 +38,7 @@ const logo = (
           fill="currentColor"
         />
       </svg>
-      <span className="ml-2 max-sm:hidden">Open Api Interface</span>
+      <span className="ml-2 max-sm:hidden">Open Interface</span>
     </div>
   </>
 );
