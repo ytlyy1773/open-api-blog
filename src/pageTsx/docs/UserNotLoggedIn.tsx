@@ -62,6 +62,7 @@ function Login() {
   async function createInvitationHandle() {
     const res: ResponseData<string> = await postCreateInvitationApi();
     message.success(res.msg);
+    getInvitationList();
   }
 
   return (
@@ -119,7 +120,11 @@ function Login() {
                     <CopyToClipboard
                       text={`https://www.openapijs.com/register?code=${item.code}`}
                     >
-                      <Button type="link" className="px-2">
+                      <Button
+                        type="link"
+                        className="px-2"
+                        onCopy={() => message.success("复制邀请链接成功")}
+                      >
                         复制邀请链接
                       </Button>
                     </CopyToClipboard>
@@ -156,7 +161,10 @@ export function showToken() {
           <Tag bordered={false} color="processing">
             {token}
           </Tag>
-          <CopyToClipboard text={token}>
+          <CopyToClipboard
+            text={token}
+            onCopy={() => message.success("复制token成功")}
+          >
             <Button type="link" className="px-2">
               复制token
             </Button>
