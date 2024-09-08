@@ -146,6 +146,7 @@ export function useToken() {
       storedToken && setToken(JSON.parse(storedToken));
     }
   }, []);
+
   return token;
 }
 

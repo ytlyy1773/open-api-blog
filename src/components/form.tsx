@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { postEmailSendApi } from "@/http/modules/ownUse";
 import { message } from "antd";
 import { checkEmail } from "@/utils/check";
@@ -8,15 +9,18 @@ export function Form({
   emitsEmail,
   emitsPassword,
   emitsCode,
+  emitsInvitationCode,
 }: {
   children: React.ReactNode;
   emitsEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   emitsPassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
   emitsCode?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  emitsInvitationCode?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   const [email, setEmail] = useState("");
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [count, setCount] = useState(60);
+  const [codeValue, setCodeValue] = useState("");
 
   const handleSendCode = async () => {
     if (!email || !checkEmail(email)) {
@@ -45,6 +49,19 @@ export function Form({
     setEmail(event.target.value);
     emitsEmail(event);
   };
+
+  const changeInvitationCode = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCodeValue(event.target.value);
+    emitsInvitationCode?.(event);
+  };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.query.code) {
+      setCodeValue(router.query.code as string);
+    }
+  }, [router]);
 
   return (
     <form className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16">
@@ -117,6 +134,27 @@ export function Form({
               {!isCodeSent ? "获取验证码" : `${count}秒`}
             </button>
           </div>
+        </div>
+      )}
+      {emitsInvitationCode && (
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-xs text-gray-600 uppercase"
+          >
+            邀请码
+          </label>
+          <input
+            value={codeValue}
+            id="code"
+            name="text"
+            type="text"
+            placeholder="邀请码"
+            required
+            maxLength={8}
+            className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+            onChange={changeInvitationCode}
+          />
         </div>
       )}
       {children}

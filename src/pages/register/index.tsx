@@ -11,6 +11,7 @@ interface LoginForm {
   email: string;
   password: string;
   emailCode: string;
+  code?: string;
 }
 
 export default function Login() {
@@ -20,6 +21,7 @@ export default function Login() {
     email: "",
     password: "",
     emailCode: "",
+    code: "",
   });
 
   const [timer, setTimer] = useState(false);
@@ -65,6 +67,15 @@ export default function Login() {
     }));
   }
 
+  function changeInvitationCodeHandle(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    setLoginForm((prevState) => ({
+      ...prevState,
+      code: event.target.value,
+    }));
+  }
+
   return (
     <>
       <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
@@ -77,6 +88,7 @@ export default function Login() {
             emitsEmail={changeEmailHandle}
             emitsPassword={changePasswordHandle}
             emitsCode={changeCodeHandle}
+            emitsInvitationCode={changeInvitationCodeHandle}
           >
             <SubmitButton loading={timer} onSubmit={handleFormSubmit}>
               注册

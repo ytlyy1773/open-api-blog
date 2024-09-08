@@ -10,7 +10,7 @@ export default function NotLogin() {
             type="primary"
             className="primary-button h-10 w-40 rounded-full"
           >
-            去登陆
+            去登录
           </Button>
         </Link>
       </div>
