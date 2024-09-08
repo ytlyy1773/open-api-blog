@@ -1,0 +1,79 @@
+import { BoxIcon, GearIcon, RowsIcon } from "@/components/icons";
+import { Callout, Card, Cards, Steps } from "nextra/components";
+import { OptionTable } from "@/components/table";
+import { OptionBadge } from "@/components/badge";
+
+# 随机图片
+
+随机从图库获取一张图片
+
+## <OptionBadge type="get" />random/image
+
+### 接口地址
+
+```url
+https://www.openapijs.com/api/random/image
+```
+
+**curl**
+
+```bash
+curl --location 'https://www.openapijs.com/api/random/image'
+```
+
+> 随机返回图库中的一张图片
+
+### 响应示例
+
+```text
+https://www.jwblog.cn/images/openapi/animal/animal003.jpg
+```
+
+## <OptionBadge type="post" />random/image
+
+### 接口地址
+
+```url
+https://www.openapijs.com/api/random/image
+```
+
+**curl**
+
+```bash
+curl --location --request POST 'https://www.openapijs.com/api/random/image'
+```
+
+> 返回特定数量随机图片数组
+
+### 入参
+
+```json
+{
+  "length": 10
+}
+```
+
+### 响应示例
+
+```json
+{
+  "data": [
+    "https://www.jwblog.cn/images/openapi/animal/animal010.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal012.jpg",
+    "https://www.jwblog.cn/images/openapi/dog/dog007.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal001.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal008.jpg",
+    "https://www.jwblog.cn/images/openapi/dog/dog004.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal009.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal007.jpg",
+    "https://www.jwblog.cn/images/openapi/animal/animal006.jpg",
+    "https://www.jwblog.cn/images/openapi/dog/dog003.jpg"
+  ],
+  "msg": "success",
+  "code": 200
+}
+```
+
+### Attributes
+
+<OptionTable options={[["length", "number?", "返回随机数量图片数组", 10]]} />
