@@ -119,12 +119,9 @@ function Login() {
                     {item.code}
                     <CopyToClipboard
                       text={`https://www.openapijs.com/register?code=${item.code}`}
+                      onCopy={() => message.success("复制邀请链接成功")}
                     >
-                      <Button
-                        type="link"
-                        className="px-2"
-                        onCopy={() => message.success("复制邀请链接成功")}
-                      >
+                      <Button type="link" className="px-2">
                         复制邀请链接
                       </Button>
                     </CopyToClipboard>
