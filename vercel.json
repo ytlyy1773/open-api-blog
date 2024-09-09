@@ -1,9 +1,12 @@
 {
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/next"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "out"
       }
-    ],
-    "outputDirectory": "out"
-  }
+    }
+  ],
+  "outputDirectory": "out"
+}
