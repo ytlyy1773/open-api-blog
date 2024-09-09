@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "dev": "next dev && next-sitemap",
+    "dev": "next dev && next build && next export && next-sitemap",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
