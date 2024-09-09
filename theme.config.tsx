@@ -4,6 +4,12 @@ import { useRouter } from "next/router";
 import type { DocsThemeConfig } from "nextra-theme-docs";
 import { useConfig } from "nextra-theme-docs";
 
+interface ContentType {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
 const logo = (
   <>
     <div className="flex oai-icon">
@@ -47,7 +53,14 @@ const config: DocsThemeConfig = {
   logo,
   head: function useHead() {
     const { title } = useConfig();
-
+    // 谷歌网站管理员验证
+    const content: ContentType = {
+      google: {
+        1: "ldR2JWC_gLOds20kvD4ODpr9GzT5jUUQPnyWwE1dxIM",
+        2: "dR34rIDD3p87lSjSNc3WMWWpiS629MMhw0lovgpNvP8",
+      },
+    };
+    const googleContent = `${process.env.NEXT_PUBLIC_GOOGLE_CONTENT || 1}`;
     return (
       <>
         <meta name="msapplication-TileColor" content="#fff" />
@@ -63,7 +76,7 @@ const config: DocsThemeConfig = {
         <link rel="icon" href="/favicon.png" type="image/png" />
         <meta
           name="google-site-verification"
-          content="ldR2JWC_gLOds20kvD4ODpr9GzT5jUUQPnyWwE1dxIM"
+          content={content.google[googleContent]}
         />
         <link
           rel="icon"
