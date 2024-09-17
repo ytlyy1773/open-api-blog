@@ -174,9 +174,24 @@ const config: DocsThemeConfig = {
             <span>一条懒羊羊的博客</span>
           </a>
         </div>
-        <p className="mt-6 text-xs">
-          {new Date().getFullYear()}&nbsp;©&nbsp;
-          <a href="https://beian.miit.gov.cn/" target="_blank">
+        <p className="flex mt-6 text-xs">
+          <img
+            src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png"
+            style={{ width: "16px", marginRight: ".5rem" }}
+          />
+          <a
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=41132402411829"
+            rel="noreferrer"
+            target="_blank"
+            className="cursor-pointer mr-2"
+          >
+            豫公网安备41132402411829
+          </a>
+          <a
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            className="cursor-pointer mr-2"
+          >
             豫ICP备2023019165号-3
           </a>
         </p>
