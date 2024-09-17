@@ -177,6 +177,7 @@ const config: DocsThemeConfig = {
         <p className="flex mt-6 text-xs">
           <img
             src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png"
+            alt="备案link"
             style={{ width: "16px", marginRight: ".5rem" }}
           />
           <a
